@@ -1,0 +1,279 @@
+{
+    "auth": "none",
+    "calls": {
+        "AAE": {
+            "initialized": true,
+            "method": "get",
+            "name": "Conectar",
+            "publish_as": "action",
+            "rank": 0,
+            "ret_value": "api.1714656189229x585349478564495400.plugin_api.AAE",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.AAE\":{\"caption\":\"Conectar\",\"fields\":{\"_p_pairingCode\":{\"ret_btype\":\"text\",\"caption\":\"pairingCode\",\"sample_value\":null,\"path\":[\"pairingCode\"]},\"_p_code\":{\"ret_btype\":\"text\",\"caption\":\"code\",\"sample_value\":\"2@jiTBs7y2H/BJJIm0RXmVSrsKlQDJre/7XXDtcVTs3YLQqRKkaYPEVa6QUi1uLXeMQ48KaIV0I0mfLQ==,ZmSHoOs0iX0U0R0ysYKSKjTK127xMJ0Gza/q9b0RPhk=,tN5RzGniLIiLPU5ihMrDfwMrO4flaXyjftXECh2kaTI=,f3azx9jyFpBIxcCGpt4nxbBuEUyxs45PaoRMi9axy2w=\",\"path\":[\"code\"]},\"_p_base64\":{\"ret_btype\":\"text\",\"caption\":\"base64\",\"sample_value\":\"(value too large to save 12014 bytes)\",\"path\":[\"base64\"]},\"_p_count\":{\"ret_btype\":\"number\",\"caption\":\"count\",\"sample_value\":176,\"path\":[\"count\"]}}}}",
+            "url": "[URL APi]/instance/connect/[Nome Instância]",
+            "url_params": {
+                "AAG": {
+                    "doc": "O nome de sistema da Instância. ",
+                    "key": "Nome Instância",
+                    "private": true,
+                    "visibility": "secret"
+                },
+                "ABT": {
+                    "key": "URL APi",
+                    "private": true,
+                    "visibility": "secret"
+                }
+            }
+        },
+        "AAI": {
+            "initialized": true,
+            "method": "get",
+            "name": "Status Conexão",
+            "publish_as": "action",
+            "rank": 1,
+            "ret_value": "api.1714656189229x585349478564495400.plugin_api.AAI",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.AAI\":{\"caption\":\"Status Conexão\",\"fields\":{\"_p_instance.instanceName\":{\"ret_btype\":\"text\",\"caption\":\"instance instanceName\",\"sample_value\":\"teste\",\"path\":[\"instance\",\"instanceName\"]},\"_p_instance.state\":{\"ret_btype\":\"text\",\"caption\":\"instance state\",\"sample_value\":\"close\",\"path\":[\"instance\",\"state\"]}}}}",
+            "url": "[URL APi]/instance/connectionState/[Nome Instância]",
+            "url_params": {
+                "AAK": {
+                    "doc": "O nome de sistema da Instância. Os estados possíveis são: \"close\", \"connecting\" e \"open\" (sem as aspas, é claro...). OBS.: Se tentar a conexão e não a efetivar o estado permanecerá \"connecting\" até que de fato se conecte ou que solicite desconexão.",
+                    "key": "Nome Instância",
+                    "private": true,
+                    "visibility": "secret"
+                },
+                "ABU": {
+                    "key": "URL APi",
+                    "private": true,
+                    "visibility": "secret"
+                }
+            }
+        },
+        "AAl": {
+            "initialized": true,
+            "method": "delete_method",
+            "name": "Desconectar",
+            "publish_as": "action",
+            "rank": 2,
+            "ret_value": "api.1714656189229x585349478564495400.plugin_api.AAl",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.AAl\":{\"caption\":\"Desconectar\",\"fields\":{\"_p_status\":{\"ret_btype\":\"text\",\"caption\":\"status\",\"sample_value\":\"SUCCESS\",\"path\":[\"status\"]},\"_p_error\":{\"ret_btype\":\"boolean\",\"caption\":\"error\",\"sample_value\":false,\"path\":[\"error\"]},\"_p_response.message\":{\"ret_btype\":\"text\",\"caption\":\"response message\",\"sample_value\":\"Instance logged out\",\"path\":[\"response\",\"message\"]}}}}",
+            "url": "[URL APi]/instance/logout/[Nome Instância]",
+            "url_params": {
+                "AAo": {
+                    "key": "Nome Instância",
+                    "private": true,
+                    "visibility": "secret"
+                },
+                "ABV": {
+                    "key": "URL APi",
+                    "private": true,
+                    "visibility": "secret"
+                }
+            }
+        },
+        "AAp": {
+            "body": "{\n    \"number\": \"<Destinatário>\",\n    \"options\": {\n        \"delay\": <Delay>,\n        \"presence\": \"<Tipo Presença>\",\n        \"linkPreview\": <Link Preview?>\n    },\n    \"textMessage\": {\n        \"text\": \"<Mensagem>\"\n    }\n}",
+            "body_params": {
+                "AAs": {
+                    "doc": "O número do destinatário no formato: DDI+DDD+123456789. Ou o remoteJid ou groupJid, exemplos: 5511911111111@s.whatsapp.net ou 120363024158769234@g.us ou 5511911111111-1111111111@g.us. ",
+                    "key": "Destinatário",
+                    "private": true,
+                    "value": "5562984125519"
+                },
+                "AAt": {
+                    "doc": "Tempo em milissegundos que a mensagem deve aguardar até ser enviada, mostrando as informações de presença configuradas no próximo item.",
+                    "key": "Delay",
+                    "private": true,
+                    "value": "1200"
+                },
+                "AAu": {
+                    "doc": "O `composing` (compondo) fará com que a mensagem “digitando” apareça no menu superior do WhatsApp, durante o tempo definido no item anterior. Pode ser também: `composing`, `available`, `active`, `unavailable` ou `paused`. ",
+                    "key": "Tipo Presença",
+                    "private": true,
+                    "value": "composing"
+                },
+                "AAv": {
+                    "doc": "A visualização de link (Link Preview) resume o conteúdo de um, quando a mensagem contem link. O resumo contem um título, uma descrição e uma miniatura. Pode `true` ou `false`.",
+                    "key": "Link Preview?",
+                    "private": true,
+                    "value": "false"
+                },
+                "AAx": {
+                    "doc": "Informe o texto da mensagem que deseja enviar, podendo utilizar os mesmos recursos que usaria no aplicativo ou na web, que são:\n\n- Emojis\n- Negrito, digite *seutexto*\n- Itálico, entre _seutexto_\n- Riscado, venha in ~seutexto~\n- Monoespaço entre ```seutexto``` ou `monoespaçado`\n\nPara quebrar uma linha, digite \"\\n\" na mensagem.",
+                    "key": "Mensagem",
+                    "private": true,
+                    "value": "Mensagem de texto simples, enviada com *ApiWa Solutions* 🚀.\\n\\nAqui você pode enviar textos em *negrito*, _itálico_, ~tachado~ e ```monoespaçado``` ou `monoespaçado`.\\n\\nVocê também pode usar qualquer emoticon disponível no WhatsApp, como estes exemplos abaixo:\\n\\n😉🤣🤩🤝👏👍🙏"
+                }
+            },
+            "headers": {
+                "0": {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "visibility": "hidden"
+                }
+            },
+            "initialized": true,
+            "method": "post",
+            "name": "Enviar Texto",
+            "publish_as": "action",
+            "rank": 3,
+            "ret_value": "api.1714656189229x585349478564495400.plugin_api.AAp",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.AAp\":{\"caption\":\"Enviar Texto\",\"fields\":{\"_p_key.remoteJid\":{\"ret_btype\":\"text\",\"caption\":\"key remoteJid\",\"sample_value\":\"556284125519@s.whatsapp.net\",\"path\":[\"key\",\"remoteJid\"]},\"_p_key.fromMe\":{\"ret_btype\":\"boolean\",\"caption\":\"key fromMe\",\"sample_value\":true,\"path\":[\"key\",\"fromMe\"]},\"_p_key.id\":{\"ret_btype\":\"text\",\"caption\":\"key id\",\"sample_value\":\"BAE5E7CC08331BEF\",\"path\":[\"key\",\"id\"]},\"_p_message.extendedTextMessage.text\":{\"ret_btype\":\"text\",\"caption\":\"message extendedTextMessage text\",\"sample_value\":\"Mensagem de texto simples, enviada com *ApiWa Solutions* 🚀.\\n\\nAqui você pode enviar textos em *negrito*, _itálico_, ~tachado~ e ```monoespaçado``` ou `monoespaçado`.\\n\\nVocê também pode usar qualquer emoticon disponível no WhatsApp, como estes exemplos abaixo:\\n\\n😉🤣🤩🤝👏👍🙏\",\"path\":[\"message\",\"extendedTextMessage\",\"text\"]},\"_p_messageTimestamp\":{\"ret_btype\":\"text\",\"caption\":\"messageTimestamp\",\"sample_value\":\"1715172915\",\"path\":[\"messageTimestamp\"]},\"_p_status\":{\"ret_btype\":\"text\",\"caption\":\"status\",\"sample_value\":\"PENDING\",\"path\":[\"status\"]}}}}",
+            "url": "[URL APi]/message/sendText/[Nome Instância]",
+            "url_params": {
+                "AAr": {
+                    "key": "Nome Instância",
+                    "private": true,
+                    "visibility": "secret"
+                },
+                "ABW": {
+                    "key": "URL APi",
+                    "private": true,
+                    "visibility": "secret"
+                }
+            }
+        },
+        "AAz": {
+            "body": "{\n    \"number\": \"<Destinatário>\",\n    \"options\": {\n        \"delay\": <Delay>,\n        \"presence\": \"<Presença>\"\n    },\n    \"mediaMessage\": {\n    \t\"mediatype\": \"<Tipo de Mídia>\",\n        \"fileName\": \"<Nome do Arquivo>\",\n        \"caption\": \"<Mensagem>\",\n        \"media\": \"<URL ou Base64>\"\n    }\n}",
+            "body_params": {
+                "ABB": {
+                    "key": "Destinatário",
+                    "private": true,
+                    "value": "5562984125519"
+                },
+                "ABD": {
+                    "key": "Presença",
+                    "private": true,
+                    "value": "composing"
+                },
+                "ABE": {
+                    "doc": "O tipo de arquivo que está sendo enviado. Pode ser: 'image', 'video' e 'document'. Os nomes são autoexplicativos...",
+                    "key": "Tipo de Mídia",
+                    "private": true,
+                    "value": "image"
+                },
+                "ABF": {
+                    "key": "Nome do Arquivo",
+                    "private": true,
+                    "value": "teste"
+                },
+                "ABG": {
+                    "key": "Mensagem",
+                    "private": true,
+                    "value": "Teste"
+                },
+                "ABH": {
+                    "doc": "Pode ser o URL do arquivo ou também o código em Base64.",
+                    "key": "URL ou Base64",
+                    "private": true,
+                    "value": "https://cdn-icons-png.flaticon.com/128/744/744422.png"
+                },
+                "ABJ": {
+                    "key": "Delay",
+                    "private": true,
+                    "value": "1200"
+                }
+            },
+            "headers": {
+                "0": {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "visibility": "hidden"
+                }
+            },
+            "initialized": true,
+            "method": "post",
+            "name": "Enviar Imagem|Video|Arquivo",
+            "publish_as": "action",
+            "rank": 4,
+            "ret_value": "api.1714656189229x585349478564495400.plugin_api.AAz",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.AAz\":{\"caption\":\"Enviar Imagem|Video|Arquivo\",\"fields\":{\"_p_key.remoteJid\":{\"ret_btype\":\"text\",\"caption\":\"key remoteJid\",\"sample_value\":\"556284125519@s.whatsapp.net\",\"path\":[\"key\",\"remoteJid\"]},\"_p_key.fromMe\":{\"ret_btype\":\"boolean\",\"caption\":\"key fromMe\",\"sample_value\":true,\"path\":[\"key\",\"fromMe\"]},\"_p_key.id\":{\"ret_btype\":\"text\",\"caption\":\"key id\",\"sample_value\":\"BAE55F2AD1A2879A\",\"path\":[\"key\",\"id\"]},\"_p_message.imageMessage.url\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage url\",\"sample_value\":\"https://mmg.whatsapp.net/o1/v/t62.7118-24/f1/m234/up-oil-image-92ec7735-4581-42da-82d7-fca584a2da91?ccb=9-4&oh=01_Q5AaIPTetnryM-eLAUmec8h3eHiWx6ex5etK34OGUaNWyH12&oe=6665F464&_nc_sid=000000&mms3=true\",\"path\":[\"message\",\"imageMessage\",\"url\"]},\"_p_message.imageMessage.mimetype\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage mimetype\",\"sample_value\":\"application/octet-stream\",\"path\":[\"message\",\"imageMessage\",\"mimetype\"]},\"_p_message.imageMessage.caption\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage caption\",\"sample_value\":\"Teste\",\"path\":[\"message\",\"imageMessage\",\"caption\"]},\"_p_message.imageMessage.fileSha256\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage fileSha256\",\"sample_value\":\"twL3h2CNovH+F1fPoWv3qXa1OkBehtniCwMkK9HbCqg=\",\"path\":[\"message\",\"imageMessage\",\"fileSha256\"]},\"_p_message.imageMessage.fileLength\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage fileLength\",\"sample_value\":\"4430\",\"path\":[\"message\",\"imageMessage\",\"fileLength\"]},\"_p_message.imageMessage.height\":{\"ret_btype\":\"number\",\"caption\":\"message imageMessage height\",\"sample_value\":128,\"path\":[\"message\",\"imageMessage\",\"height\"]},\"_p_message.imageMessage.width\":{\"ret_btype\":\"number\",\"caption\":\"message imageMessage width\",\"sample_value\":128,\"path\":[\"message\",\"imageMessage\",\"width\"]},\"_p_message.imageMessage.mediaKey\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage mediaKey\",\"sample_value\":\"BDfLlQDBfjIO+91kB2VsIWj40UcvfWdejWtY0aPAkss=\",\"path\":[\"message\",\"imageMessage\",\"mediaKey\"]},\"_p_message.imageMessage.fileEncSha256\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage fileEncSha256\",\"sample_value\":\"bd3KCWS2Ms3hTlK2TT2YUIPrhX+j9ycnrIx63W2EG8k=\",\"path\":[\"message\",\"imageMessage\",\"fileEncSha256\"]},\"_p_message.imageMessage.directPath\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage directPath\",\"sample_value\":\"/o1/v/t62.7118-24/f1/m234/up-oil-image-92ec7735-4581-42da-82d7-fca584a2da91?ccb=9-4&oh=01_Q5AaIPTetnryM-eLAUmec8h3eHiWx6ex5etK34OGUaNWyH12&oe=6665F464&_nc_sid=000000\",\"path\":[\"message\",\"imageMessage\",\"directPath\"]},\"_p_message.imageMessage.mediaKeyTimestamp\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage mediaKeyTimestamp\",\"sample_value\":\"1715366024\",\"path\":[\"message\",\"imageMessage\",\"mediaKeyTimestamp\"]},\"_p_message.imageMessage.jpegThumbnail\":{\"ret_btype\":\"text\",\"caption\":\"message imageMessage jpegThumbnail\",\"sample_value\":\"/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAgACADASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAABAUGAgf/xAAqEAACAAUCAwgDAAAAAAAAAAABAgADBAUREiETMVEGFCJBYYGhwRUjsf/EABYBAQEBAAAAAAAAAAAAAAAAAAQDAv/EACQRAAEDAQcFAAAAAAAAAAAAAAEAAgMRBBITITGR8AVRYYGx/9oADAMBAAIRAxEAPwBbY+yTTWlVVWgm0zKcqDjf2OecUcy10kuhFGlKopznKYO/rnnmNUDVS2ej7prLaXyAPDjJ+ekNQZndZRXJfAzxNj7+sStNmxpiGkim31bilMUQeaGu6hbz2UYaqmkliVTpLywz59dznpEwlJOdGdUyqnBMdUuhmm01fECAcM40mJax2uVVWoTXmOpMxxgY6wg4UEYxT4r3UGmSZ5uD0qi0CebLSmnZcgMCGGx3O8GJKAklJc4l9XjfmcwlttxofxNMhrTKmIDyBOxMGNdbQslZQqQFHQMCfiKujeZi6mXNEMczW7ojraavXML/AKzzGITdlpbNYlYDbiv/AGCq+52w26pSTU6neWQAdX3EtaL8lDZrjSs5ExiWkbeZ2P0YN1CNzogBrVNsb7jyV//Z\",\"path\":[\"message\",\"imageMessage\",\"jpegThumbnail\"]},\"_p_messageTimestamp\":{\"ret_btype\":\"text\",\"caption\":\"messageTimestamp\",\"sample_value\":\"1715366025\",\"path\":[\"messageTimestamp\"]},\"_p_status\":{\"ret_btype\":\"text\",\"caption\":\"status\",\"sample_value\":\"PENDING\",\"path\":[\"status\"]}}}}",
+            "url": "[URL APi]/message/sendMedia/[Nome Instância]",
+            "url_params": {
+                "ABI": {
+                    "doc": "Nome da Instância",
+                    "key": "Nome Instância",
+                    "private": true,
+                    "visibility": "secret"
+                },
+                "ABX": {
+                    "key": "URL APi",
+                    "private": true,
+                    "visibility": "secret"
+                }
+            }
+        },
+        "ABN": {
+            "body": "{\n\t\"nome_instancia\": \"<Nome Instância>\"\n}",
+            "body_params": {
+                "ABO": {
+                    "key": "Nome Instância",
+                    "private": true,
+                    "value": "mercadolivre"
+                }
+            },
+            "initialized": true,
+            "method": "post",
+            "name": "Detalhes Instância",
+            "publish_as": "action",
+            "rank": 5,
+            "ret_value": "api.1714656189229x585349478564495400.plugin_api.ABN",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.ABN\":{\"caption\":\"Detalhes Instância\",\"fields\":{\"_p_status\":{\"ret_btype\":\"text\",\"caption\":\"status\",\"sample_value\":\"success\",\"path\":[\"status\"]},\"_p_response.nome_instancia\":{\"ret_btype\":\"text\",\"caption\":\"response nome_instancia\",\"sample_value\":\"mercadolivre\",\"path\":[\"response\",\"nome_instancia\"]},\"_p_response.remoteJid_conectado\":{\"ret_btype\":\"text\",\"caption\":\"response remoteJid_conectado\",\"sample_value\":\"556284125226@s.whatsapp.net\",\"path\":[\"response\",\"remoteJid_conectado\"]}}}}",
+            "url": "https://apiwa.bubbleapps.io/api/1.1/wf/intancia_detalhes"
+        },
+        "ABP": {
+            "body": "{\n    \"numbers\": [\n        \"<Número>\"\n    ]\n}",
+            "body_params": {
+                "ABS": {
+                    "key": "Número",
+                    "private": true,
+                    "value": "5562984125519"
+                }
+            },
+            "headers": {
+                "ABR": {
+                    "key": "Content-Type",
+                    "private": true,
+                    "value": "application/json",
+                    "visibility": "hidden"
+                }
+            },
+            "initialized": true,
+            "is_list": true,
+            "method": "post",
+            "name": "Tem Whats?",
+            "publish_as": "action",
+            "rank": 6,
+            "ret_value": "api.1714656189229x585349478564495400.plugin_api.ABP",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.ABP\":{\"caption\":\"Tem Whats?\",\"fields\":{\"_p_exists\":{\"ret_btype\":\"boolean\",\"caption\":\"exists\",\"sample_value\":true,\"path\":[\"exists\"]},\"_p_jid\":{\"ret_btype\":\"text\",\"caption\":\"jid\",\"sample_value\":\"556284125519@s.whatsapp.net\",\"path\":[\"jid\"]},\"_p_name\":{\"ret_btype\":\"text\",\"caption\":\"name\",\"sample_value\":\"ApiWa Solutions\",\"path\":[\"name\"]},\"_p_number\":{\"ret_btype\":\"text\",\"caption\":\"number\",\"sample_value\":\"5562984125519\",\"path\":[\"number\"]}}}}",
+            "url": "[URL APi]/chat/whatsappNumbers/[Nome Instância]",
+            "url_params": {
+                "ABQ": {
+                    "key": "Nome Instância",
+                    "private": true,
+                    "visibility": "secret"
+                },
+                "ABY": {
+                    "key": "URL APi",
+                    "private": true,
+                    "visibility": "secret"
+                }
+            }
+        }
+    },
+    "human": "Whatsapp - (ApiWa Solutions)",
+    "shared_headers": {
+        "AAk": {
+            "doc": "Esta é a chave da API que autentica as chamadas e protege sua API do WhatsApp para evitar que pessoas mal-intencionadas usem-a.",
+            "key": "apikey",
+            "private": true,
+            "visibility": "secret"
+        }
+    },
+    "token_param_name": "apikey"
+}

@@ -1,0 +1,14 @@
+{
+    "categories": {
+        "0": "chat",
+        "1": "mobile",
+        "2": "artificial intelligence (AI)",
+        "3": "media",
+        "4": "social network"
+    },
+    "description": "API para conexão com Whatsapp.\n\n* STATUS CONEXÃO:\nOs estados possíveis são (sem as aspas, é claro...):\n\"close\",\n\"connecting\",\n\"open\"\nOBSERVAÇÃO: Se tentar a conexão e não a efetivar o estado permanecerá \"connecting\" até que de fato se conecte ou que solicite desconexão.",
+    "image": "//meta-q.cdn.bubble.io/f1714656216596x916923778397482900/api.png",
+    "license": "open_source",
+    "link": "https://apiwa.solutions",
+    "name": "Whatsapp - (ApiWa Solutions)"
+}
